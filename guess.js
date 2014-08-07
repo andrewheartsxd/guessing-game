@@ -93,29 +93,29 @@ function myFunction()
 	}
 
 };
-var play = prompt("Roll the dice? Yes or no?").toLowerCase();
+// var play = prompt("Roll the dice? Yes or no?").toLowerCase();
 
-switch(play)
-{
-	case 'yes':
+// switch(play)
+// {
+// 	case 'yes':
 
-		while(play === "yes")
-		{
-			myFunction();
-			play = prompt("Play again?").toLowerCase();
+// 		while(play === "yes")
+// 		{
+// 			myFunction();
+// 			play = prompt("Play again?").toLowerCase();
 
-		};
+// 		};
 
-		alert("Thanks for playing!");
-		break;
+// 		alert("Thanks for playing!");
+// 		break;
 
-	case 'no':
+// 	case 'no':
 
-		alert("You're no fun :(");
-		break;
+// 		alert("You're no fun :(");
+// 		break;
 
-	default:
+// 	default:
 
-		alert("Please answer 'Yes' or 'No'");
-		location.reload()
-};
+// 		alert("Please answer 'Yes' or 'No'");
+// 		location.reload()
+// };
