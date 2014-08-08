@@ -1,9 +1,9 @@
 function rollDice()
 {
-	var balance = 0
-	var rolls = 0
+	var balance = document.getElementById("balance").value
+	var rolls = document.getElementById("rolls").value
 
-	var play = "yes"
+	// var play = "yes"
 
 	// while(play === "yes")
 	// {
@@ -30,9 +30,9 @@ function rollDice()
   console.log("Dice 2 roll " + dice2);
   console.log("Rolls " + rolls);
   console.log("Balance " + balance);
-  return balance;
 
-  getElementById =
+
+
 
 
 	// alert("You rolled " + dice1 + " & " + dice2 + ". You have scored $" + balance + " in " + rolls + " roll(s). Go again?")
