@@ -34,56 +34,50 @@ function myFunction()
 				play2 = prompt("Please enter 'yes' or 'no'")
 		};
 	};
-// };
-	// return balance;
-// }
 
-// var player1 = myFunction();
-// var player2 = myFunction();
+	// alert("My turn! I have " + rolls + " rolls!")
+	// var myRolls = 0
+	// var myBalance = 0
 
+	// while(myRolls < rolls)
+	// {
+	// 	var dice3 = Math.floor((Math.random()*6)+1)
+	// 	var dice4 = Math.floor((Math.random()*6)+1)
+	// 	// alert(dice3)
+	// 	// alert(dice4)
+	// 	// alert(myRolls)
 
+	// 	if(dice3 + dice4 === 7 || dice3 + dice4 === 11)
+	// 	{
 
-	alert("My turn! I have " + rolls + " rolls!")
-	var myRolls = 0
-	var myBalance = 0
+	// 		var myWinPoint = 1
+	// 		var myRolls = myRolls + 1
+	// 	}
+	// 	else if(dice3 + dice4 > 2)
+	// 	{
+	// 		var myWinPoint = 0
+	// 		var myRolls = myRolls + 1
+	// 	}
+	// 	else
+	// 	{
+	// 		var myWinPoint = -1
+	// 		var roll = 1
+	// 	}
 
-	while(myRolls < rolls)
-	{
-		var dice3 = Math.floor((Math.random()*6)+1)
-		var dice4 = Math.floor((Math.random()*6)+1)
-		// alert(dice3)
-		// alert(dice4)
-		// alert(myRolls)
+	// 	var myBalance = myBalance + myWinPoint
+	// 	alert("I rolled " + dice3 + " & " + dice4 + ". I have scored $" + myBalance + " in " + myRolls + " roll(s).")
+	// };
 
-		if(dice3 + dice4 === 7 || dice3 + dice4 === 11)
-		{
+function winCalculation()
 
-			var myWinPoint = 1
-			var myRolls = myRolls + 1
-		}
-		else if(dice3 + dice4 > 2)
-		{
-			var myWinPoint = 0
-			var myRolls = myRolls + 1
-		}
-		else
-		{
-			var myWinPoint = -1
-			var roll = 1
-		}
-
-		var myBalance = myBalance + myWinPoint
-		alert("I rolled " + dice3 + " & " + dice4 + ". I have scored $" + myBalance + " in " + myRolls + " roll(s).")
-	};
-
-	result = balance - myBalance
+	winning = balance - myBalance
 	// alert(result)
 
-	if(result<0)
+	if(winning<0)
 	{
 		alert("You owe me $" + -result)
 	}
-	else if(result > 0)
+	else if(winning > 0)
 	{
 		alert("I owe you $" + result)
 	}
@@ -93,29 +87,31 @@ function myFunction()
 	}
 
 };
-// var play = prompt("Roll the dice? Yes or no?").toLowerCase();
 
-// switch(play)
-// {
-// 	case 'yes':
 
-// 		while(play === "yes")
-// 		{
-// 			myFunction();
-// 			play = prompt("Play again?").toLowerCase();
+var play = prompt("Roll the dice? Yes or no?").toLowerCase();
 
-// 		};
+switch(play)
+{
+	case 'yes':
 
-// 		alert("Thanks for playing!");
-// 		break;
+		while(play === "yes")
+		{
+			myFunction();
+			play = prompt("Play again?").toLowerCase();
 
-// 	case 'no':
+		};
 
-// 		alert("You're no fun :(");
-// 		break;
+		alert("Thanks for playing!");
+		break;
 
-// 	default:
+	case 'no':
 
-// 		alert("Please answer 'Yes' or 'No'");
-// 		location.reload()
-// };
+		alert("You're no fun :(");
+		break;
+
+	default:
+
+		alert("Please answer 'Yes' or 'No'");
+		location.reload()
+};
