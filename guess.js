@@ -1,39 +1,48 @@
-function myFunction()
+function rollDice()
 {
 	var balance = 0
 	var rolls = 0
 
-	var play2 = "yes"
+	var play = "yes"
 
-	while(play2 === "yes")
+	// while(play === "yes")
+	// {
+	var rolls = rolls + 1
+	var dice1 = Math.floor((Math.random()*6)+1)
+	var dice2 = Math.floor((Math.random()*6)+1)
+
+	if(dice1 + dice2 === 7 || dice1 + dice2 === 11)
 	{
-		var rolls = rolls + 1
-		var dice1 = Math.floor((Math.random()*6)+1)
-		var dice2 = Math.floor((Math.random()*6)+1)
+		var winPoint = 1
+	}
+	else if(dice1 + dice2 > 2)
+	{
+		var winPoint = 0
+	}
+	else
+	{
+		var winPoint = -1
+	}
 
-		if(dice1 + dice2 === 7 || dice1 + dice2 === 11)
-		{
-			var winPoint = 1
-		}
-		else if(dice1 + dice2 > 2)
-		{
-			var winPoint = 0
-		}
-		else
-		{
-			var winPoint = -1
-		}
+	var balance = balance + winPoint;
 
-		var balance = balance + winPoint
+  console.log("Dice 1 roll " + dice1);
+  console.log("Dice 2 roll " + dice2);
+  console.log("Rolls " + rolls);
+  console.log("Balance " + balance);
+  return balance;
+
+  getElementById =
 
 
-		play2 = prompt("You rolled " + dice1 + " & " + dice2 + ". You have scored $" + balance + " in " + rolls + " roll(s). Go again?").toLowerCase()
+	// alert("You rolled " + dice1 + " & " + dice2 + ". You have scored $" + balance + " in " + rolls + " roll(s). Go again?")
 
-		while (play2 !== "yes" && play2 !== "no")
-		{
-				play2 = prompt("Please enter 'yes' or 'no'")
-		};
-	};
+		// while (play !== "yes" && play !== "no")
+		// {
+		// 		play = prompt("Please enter 'yes' or 'no'")
+		// };
+	// };
+};
 
 	// alert("My turn! I have " + rolls + " rolls!")
 	// var myRolls = 0
@@ -69,7 +78,7 @@ function myFunction()
 	// };
 
 function winCalculation()
-
+{
 	winning = balance - myBalance
 	// alert(result)
 
@@ -89,29 +98,45 @@ function winCalculation()
 };
 
 
-var play = prompt("Roll the dice? Yes or no?").toLowerCase();
+// var play = prompt("Roll the dice? Yes or no?").toLowerCase();
 
-switch(play)
+// switch(play)
+// {
+// 	case 'yes':
+
+// 		while(play === "yes")
+// 		{
+// 			rollDice();
+// 			play = prompt("Play again?").toLowerCase();
+
+// 		};
+
+// 		alert("Thanks for playing!");
+// 		break;
+
+// 	case 'no':
+
+// 		alert("You're no fun :(");
+// 		break;
+
+// 	default:
+
+// 		alert("Please answer 'Yes' or 'No'");
+// 		location.reload()
+// };
+
+function show_image(src, width, height, alt)
 {
-	case 'yes':
+  var img = document.createElement("img");
+  img.src = src;
+  img.width = width;
+  img.height = height;
+  img.alt = alt;
+  document.body.appendChild(img);
+}
 
-		while(play === "yes")
-		{
-			myFunction();
-			play = prompt("Play again?").toLowerCase();
-
-		};
-
-		alert("Thanks for playing!");
-		break;
-
-	case 'no':
-
-		alert("You're no fun :(");
-		break;
-
-	default:
-
-		alert("Please answer 'Yes' or 'No'");
-		location.reload()
-};
+function add_google_logo()
+{
+  var src = "http://google.com/images/logo.gif"
+  show_image("http://google.com/images/logo.gif", 276, 110, "Google Logo");
+}
