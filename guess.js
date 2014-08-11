@@ -66,27 +66,3 @@ function rollDiceTwo() {
 			};
 		};
 	};
-
-
-
-
-			// for (i = 1; i < document.getElementById("numberOfRollsOne").textContent.parseint; i++) {
-				// 	var displayBalanceTwo = document.getElementById("balanceTwo").textContent;
-				// 	var displayRollsTwo = document.getElementById("numberOfRollsTwo").textContent;
-				// 	numberOfRollsTwo = document.getElementById("numberOfRollsOne").textContent - 1
-				// 	var dice1 = Math.floor((Math.random()*6)+1)
-				// 	var dice2 = Math.floor((Math.random()*6)+1)
-
-				// 	if (dice1 + dice2 === 7 || dice1 + dice2 === 11) {
-				// 		balanceTwo = balanceTwo + 1;
-				// 	} else if (dice1 + dice2 === 2) {
-				// 		balanceTwo = balanceTwo -1;
-				// 	};
-
-				// 	displayBalanceTwo.innerHTML = balanceTwo;
-				// 	displayRollsTwo.innerHTML = numberOfRollsTwo;
-				// }
-
-
-// document.getElementById("numberOfRollsTwo").textContent
-// document.getElementById("numberOfRollsOne").textContent
