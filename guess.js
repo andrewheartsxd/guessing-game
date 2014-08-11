@@ -1,10 +1,8 @@
-//declare starting variables
 var balanceOne = 0;
 var numberOfRollsOne = 0;
 var numberOfRollsTwo = 0;
 var balanceTwo = 0;
 
-//declare starting functions
 var displayRollsOne = function () {
 	document.getElementById("numberOfRollsOne");
 };
@@ -17,8 +15,10 @@ var displayBalanceTwo = function () {
 var displayRollsTwo = function () {
 	document.getElementById("numberOfRollsTwo");
 };
+var reset = function () {
+	location.reload();
+}
 
-//function for when player 1 rolls
 var rollDiceOne = function () {
 	displayRollsOne();
 	displayBalanceOne();
@@ -31,16 +31,16 @@ var rollDiceOne = function () {
 		balanceOne = balanceOne - 1;
 	};
 
-	//we use this in order to update the HTML values so player 2 can call them
 	document.getElementById("balanceOne").innerHTML = balanceOne;
 	document.getElementById("numberOfRollsOne").innerHTML = numberOfRollsOne;
+	document.getElementById("diceOneImage").src = "http://www.wpclipart.com/recreation/games/dice/die_face_" + dice1 + ".png";
+  document.getElementById("diceTwoImage").src = "http://www.wpclipart.com/recreation/games/dice/die_face_" + dice2 + ".png";
 };
 
-//function for when player 2 rolls
 function rollDiceTwo() {
 	displayBalanceTwo();
 	displayRollsTwo();
-	displayRollsOne(); //we call this also because we compare player 1's # of rolls to player 2's # of rolls
+	displayRollsOne();
 	numberOfRollsTwo = numberOfRollsTwo + 1;
 	if (numberOfRollsTwo < numberOfRollsOne) {
 		var dice1 = Math.floor((Math.random()*6)+1);
@@ -50,11 +50,12 @@ function rollDiceTwo() {
 		} else if (dice1 + dice2 === 2) {
 			balanceTwo = balanceTwo - 1;
 		}
-		//we change these values here because every time player 2 clicks the button these values need to be different, so we can compare them in the first for statement of this function
+
 		document.getElementById("balanceTwo").innerHTML = balanceTwo;
 		document.getElementById("numberOfRollsTwo").innerHTML = numberOfRollsTwo;
+		document.getElementById("diceOneImage").src = "http://www.wpclipart.com/recreation/games/dice/die_face_" + dice1 + ".png";
+    document.getElementById("diceTwoImage").src = "http://www.wpclipart.com/recreation/games/dice/die_face_" + dice2 + ".png";
 
-	//this ends the game
 	} else {
 		var winning = balanceOne - balanceTwo;
 			if (winning < 0) {
@@ -66,27 +67,3 @@ function rollDiceTwo() {
 			};
 		};
 	};
-
-
-
-
-			// for (i = 1; i < document.getElementById("numberOfRollsOne").textContent.parseint; i++) {
-				// 	var displayBalanceTwo = document.getElementById("balanceTwo").textContent;
-				// 	var displayRollsTwo = document.getElementById("numberOfRollsTwo").textContent;
-				// 	numberOfRollsTwo = document.getElementById("numberOfRollsOne").textContent - 1
-				// 	var dice1 = Math.floor((Math.random()*6)+1)
-				// 	var dice2 = Math.floor((Math.random()*6)+1)
-
-				// 	if (dice1 + dice2 === 7 || dice1 + dice2 === 11) {
-				// 		balanceTwo = balanceTwo + 1;
-				// 	} else if (dice1 + dice2 === 2) {
-				// 		balanceTwo = balanceTwo -1;
-				// 	};
-
-				// 	displayBalanceTwo.innerHTML = balanceTwo;
-				// 	displayRollsTwo.innerHTML = numberOfRollsTwo;
-				// }
-
-
-// document.getElementById("numberOfRollsTwo").textContent
-// document.getElementById("numberOfRollsOne").textContent
