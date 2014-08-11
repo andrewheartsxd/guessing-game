@@ -17,7 +17,7 @@ var displayRollsTwo = function () {
 };
 var reset = function () {
 	location.reload();
-}
+};
 
 var rollDiceOne = function () {
 	displayRollsOne();
@@ -29,7 +29,7 @@ var rollDiceOne = function () {
 		balanceOne = balanceOne + 1;
 	} else if (dice1 + dice2 === 2) {
 		balanceOne = balanceOne - 1;
-	};
+	}
 
 	document.getElementById("balanceOne").innerHTML = balanceOne;
 	document.getElementById("numberOfRollsOne").innerHTML = numberOfRollsOne;
@@ -42,7 +42,8 @@ function rollDiceTwo() {
 	displayRollsTwo();
 	displayRollsOne();
 	numberOfRollsTwo = numberOfRollsTwo + 1;
-	if (numberOfRollsTwo < numberOfRollsOne) {
+
+
 		var dice1 = Math.floor((Math.random()*6)+1);
 		var dice2 = Math.floor((Math.random()*6)+1);
 		if (dice1 + dice2 === 7 || dice1 + dice2 === 11) {
@@ -50,20 +51,20 @@ function rollDiceTwo() {
 		} else if (dice1 + dice2 === 2) {
 			balanceTwo = balanceTwo - 1;
 		}
-
 		document.getElementById("balanceTwo").innerHTML = balanceTwo;
 		document.getElementById("numberOfRollsTwo").innerHTML = numberOfRollsTwo;
 		document.getElementById("diceOneImage").src = "http://www.wpclipart.com/recreation/games/dice/die_face_" + dice1 + ".png";
     document.getElementById("diceTwoImage").src = "http://www.wpclipart.com/recreation/games/dice/die_face_" + dice2 + ".png";
 
-	} else {
-		var winning = balanceOne - balanceTwo;
-			if (winning < 0) {
-				alert("Player 1 owes Player 2 $" + Math.abs(winning) + ".");
-			} else if (winning > 0) {
-				alert("Player 2 owes Player 1 $" + Math.abs(winning) + ".");
-			} else {
-				alert("We're even.");
-			};
-		};
-	};
+    if (numberOfRollsTwo === numberOfRollsOne) {
+    	document.getElementById("playerTwoRollButton").disabled = "disabled";
+			var winning = balanceOne - balanceTwo;
+				if (winning < 0) {
+					document.getElementById("winMessage").innerHTML = ("<h2><b>The result: Player One owes Player Two $" + Math.abs(winning) + "!</b></h2>");
+				} else if (winning > 0) {
+					document.getElementById("winMessage").innerHTML = ("<h2><b>The result: Player Two owes Player One $" + Math.abs(winning) + "!</b></h2>");
+				} else {
+					document.getElementById("winMessage").innerHTML = ("<h2><b>The result: Player One and Player Two are even!</b></h2>");
+				}
+    }
+}

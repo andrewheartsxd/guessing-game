@@ -10,9 +10,10 @@
     Player One rolls as many times as s/he wants by clicking the "Player One Rolls" button. Rolling a 7 or an 11 scores a point. Rolling snake eyes (one pip on each die) subtracts a point. After Player One decides to stop rolling, Player Two then rolls the same number of times as Player One. After both players have the same number of rolls, their scores are compared and a payout is calculated.
     </p>
 
+    <center id="winMessage"><h2><b>The result: Player One needs to roll!</b></h2></center>
 
     <button onclick="rollDiceOne();">Player One Rolls</button>
-    <button onclick="rollDiceTwo();">Player Two Rolls</button>
+    <button id="playerTwoRollButton" onclick="rollDiceTwo();">Player Two Rolls</button>
     <button onclick="reset();">Reset</button>
 
     <script src="guess.js"></script>
