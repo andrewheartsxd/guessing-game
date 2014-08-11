@@ -1,4 +1,7 @@
 ### Lily and Andrew's Project 1: JS + HTML.
+=======
+#This is our guessing game.
+It was created as a collaboration between Andrew and Lily, based off of Andrew's guessing game project, wherein Dexter helped put the game code into a function.
 
 We started with Andrew's dice guessing game, which was initially built using a series of input and alert boxes.
 
