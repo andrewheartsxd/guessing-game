@@ -1,142 +1,92 @@
-function rollDice()
-{
-	var balance = 0
-	var rolls = 0
+//declare starting variables
+var balanceOne = 0;
+var numberOfRollsOne = 0;
+var numberOfRollsTwo = 0;
+var balanceTwo = 0;
 
-	var play = "yes"
-
-	// while(play === "yes")
-	// {
-	var rolls = rolls + 1
-	var dice1 = Math.floor((Math.random()*6)+1)
-	var dice2 = Math.floor((Math.random()*6)+1)
-
-	if(dice1 + dice2 === 7 || dice1 + dice2 === 11)
-	{
-		var winPoint = 1
-	}
-	else if(dice1 + dice2 > 2)
-	{
-		var winPoint = 0
-	}
-	else
-	{
-		var winPoint = -1
-	}
-
-	var balance = balance + winPoint;
-
-  console.log("Dice 1 roll " + dice1);
-  console.log("Dice 2 roll " + dice2);
-  console.log("Rolls " + rolls);
-  console.log("Balance " + balance);
-  return balance;
-
-  getElementById =
-
-
-	// alert("You rolled " + dice1 + " & " + dice2 + ". You have scored $" + balance + " in " + rolls + " roll(s). Go again?")
-
-		// while (play !== "yes" && play !== "no")
-		// {
-		// 		play = prompt("Please enter 'yes' or 'no'")
-		// };
-	// };
+//declare starting functions
+var displayRollsOne = function () {
+	document.getElementById("numberOfRollsOne");
+};
+var displayBalanceOne = function () {
+	document.getElementById("balanceOne");
+};
+var displayBalanceTwo = function () {
+	document.getElementById("balanceTwo");
+};
+var displayRollsTwo = function () {
+	document.getElementById("numberOfRollsTwo");
 };
 
-	// alert("My turn! I have " + rolls + " rolls!")
-	// var myRolls = 0
-	// var myBalance = 0
+//function for when player 1 rolls
+var rollDiceOne = function () {
+	displayRollsOne();
+	displayBalanceOne();
+	numberOfRollsOne = numberOfRollsOne + 1;
+	var dice1 = Math.floor((Math.random()*6)+1);
+	var dice2 = Math.floor((Math.random()*6)+1);
+	if (dice1 + dice2 === 7 || dice1 + dice2 === 11) {
+		balanceOne = balanceOne + 1;
+	} else if (dice1 + dice2 === 2) {
+		balanceOne = balanceOne - 1;
+	};
 
-	// while(myRolls < rolls)
-	// {
-	// 	var dice3 = Math.floor((Math.random()*6)+1)
-	// 	var dice4 = Math.floor((Math.random()*6)+1)
-	// 	// alert(dice3)
-	// 	// alert(dice4)
-	// 	// alert(myRolls)
-
-	// 	if(dice3 + dice4 === 7 || dice3 + dice4 === 11)
-	// 	{
-
-	// 		var myWinPoint = 1
-	// 		var myRolls = myRolls + 1
-	// 	}
-	// 	else if(dice3 + dice4 > 2)
-	// 	{
-	// 		var myWinPoint = 0
-	// 		var myRolls = myRolls + 1
-	// 	}
-	// 	else
-	// 	{
-	// 		var myWinPoint = -1
-	// 		var roll = 1
-	// 	}
-
-	// 	var myBalance = myBalance + myWinPoint
-	// 	alert("I rolled " + dice3 + " & " + dice4 + ". I have scored $" + myBalance + " in " + myRolls + " roll(s).")
-	// };
-
-function winCalculation()
-{
-	winning = balance - myBalance
-	// alert(result)
-
-	if(winning<0)
-	{
-		alert("You owe me $" + -result)
-	}
-	else if(winning > 0)
-	{
-		alert("I owe you $" + result)
-	}
-	else
-	{
-		alert("We're even")
-	}
-
+	//we use this in order to update the HTML values so player 2 can call them
+	document.getElementById("balanceOne").innerHTML = balanceOne;
+	document.getElementById("numberOfRollsOne").innerHTML = numberOfRollsOne;
 };
 
+//function for when player 2 rolls
+function rollDiceTwo() {
+	displayBalanceTwo();
+	displayRollsTwo();
+	displayRollsOne(); //we call this also because we compare player 1's # of rolls to player 2's # of rolls
+	numberOfRollsTwo = numberOfRollsTwo + 1;
+	if (numberOfRollsTwo < numberOfRollsOne) {
+		var dice1 = Math.floor((Math.random()*6)+1);
+		var dice2 = Math.floor((Math.random()*6)+1);
+		if (dice1 + dice2 === 7 || dice1 + dice2 === 11) {
+			balanceTwo = balanceTwo + 1;
+		} else if (dice1 + dice2 === 2) {
+			balanceTwo = balanceTwo - 1;
+		}
+		//we change these values here because every time player 2 clicks the button these values need to be different, so we can compare them in the first for statement of this function
+		document.getElementById("balanceTwo").innerHTML = balanceTwo;
+		document.getElementById("numberOfRollsTwo").innerHTML = numberOfRollsTwo;
 
-// var play = prompt("Roll the dice? Yes or no?").toLowerCase();
+	//this ends the game
+	} else {
+		var winning = balanceOne - balanceTwo;
+			if (winning < 0) {
+				alert("Player 1 owes Player 2 $" + Math.abs(winning) + ".");
+			} else if (winning > 0) {
+				alert("Player 2 owes Player 1 $" + Math.abs(winning) + ".");
+			} else {
+				alert("We're even.");
+			};
+		};
+	};
 
-// switch(play)
-// {
-// 	case 'yes':
 
-// 		while(play === "yes")
-// 		{
-// 			rollDice();
-// 			play = prompt("Play again?").toLowerCase();
 
-// 		};
 
-// 		alert("Thanks for playing!");
-// 		break;
+			// for (i = 1; i < document.getElementById("numberOfRollsOne").textContent.parseint; i++) {
+				// 	var displayBalanceTwo = document.getElementById("balanceTwo").textContent;
+				// 	var displayRollsTwo = document.getElementById("numberOfRollsTwo").textContent;
+				// 	numberOfRollsTwo = document.getElementById("numberOfRollsOne").textContent - 1
+				// 	var dice1 = Math.floor((Math.random()*6)+1)
+				// 	var dice2 = Math.floor((Math.random()*6)+1)
 
-// 	case 'no':
+				// 	if (dice1 + dice2 === 7 || dice1 + dice2 === 11) {
+				// 		balanceTwo = balanceTwo + 1;
+				// 	} else if (dice1 + dice2 === 2) {
+				// 		balanceTwo = balanceTwo -1;
+				// 	};
 
-// 		alert("You're no fun :(");
-// 		break;
+				// 	displayBalanceTwo.innerHTML = balanceTwo;
+				// 	displayRollsTwo.innerHTML = numberOfRollsTwo;
+				// }
 
-// 	default:
 
-// 		alert("Please answer 'Yes' or 'No'");
-// 		location.reload()
-// };
-
-function show_image(src, width, height, alt)
-{
-  var img = document.createElement("img");
-  img.src = src;
-  img.width = width;
-  img.height = height;
-  img.alt = alt;
-  document.body.appendChild(img);
-}
-
-function add_google_logo()
-{
-  var src = "http://google.com/images/logo.gif"
-  show_image("http://google.com/images/logo.gif", 276, 110, "Google Logo");
-}
+// document.getElementById("numberOfRollsTwo").textContent
+// document.getElementById("numberOfRollsOne").textContent

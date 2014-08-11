@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Winnin' Kittens!</title>
+  </head>
+
+  <body>
+    <center><h1>Do you want to roll?</h1></center>
+    <button onclick="rollDiceOne();">Player One Rolls</button>
+    <button onclick="rollDiceTwo();">Player Two Rolls</button>
+
+    <script src="guess.js"></script>
+
+    <div id="dice1"></div>
+    <div id="dice2"></div>
+
+    <div id="playerOne">
+      <h3>Player 1</h3>
+      <ul>
+        <li>Balance: <div id="balanceOne">0</div></li>
+        <li>Number of Rolls: <div id="numberOfRollsOne">0</div></li>
+      </ul>
+    </div>
+
+    <div id="playerTwo">
+      <h3>Player 2</h3>
+      <ul>
+        <li>Balance: <div id="balanceTwo">0</div></li>
+        <li>Number of rolls: <div id="numberOfRollsTwo">0</div></li>
+      </ul>
+    </div>
+  </body>
+</html>
